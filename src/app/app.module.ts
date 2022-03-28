@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 import { AppRoutingModule } from './app-routing.module';
 import { greetingService } from './features/greeting/greeting.service';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { greetingService } from './features/greeting/greeting.service';
     GameComponent,
     PageNotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgChartsModule],
   providers: [greetingService],
   bootstrap: [AppComponent],
 })
