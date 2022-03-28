@@ -3,11 +3,12 @@ module.exports = {
   theme: {
     extend: {
       dropShadow: {
-        purple300: "0 0px 4px #d8b4fe",
-        "4xl": [
-          "0 35px 35px rgba(0, 0, 0, 0.25)",
-          "0 45px 65px rgba(0, 0, 0, 0.15)",
-        ],
+        purple300: "0 0 4px #d8b4fe",
+        teal300: "0 0 4px #5eead4",
+        red600: "0 0 4px #dc2626",
+        emerald400: "0 0 4px #34d399",
+        green500: "0 0 4px #22c55e",
+        slate400: "0 0 4px #94a3b8",
       },
     },
   },

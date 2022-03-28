@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Greeting } from '../../features/greeting/greeting';
 import { greetingService } from '../../features/greeting/greeting.service';
 
+interface Result {
+  value: number;
+  text: string;
+}
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -10,10 +14,13 @@ import { greetingService } from '../../features/greeting/greeting.service';
 })
 export class GameComponent implements OnInit {
   public name: string = '';
+  public randomRobot: string =
+    'https://robohash.org/' + Math.floor(Math.random() * 10);
   public greeting: Greeting | undefined;
   public choices: string[] = ['Rock', 'Paper', 'Scissors'];
   public computerChoice: string | undefined;
-  public result: string | undefined;
+  public userChoice: string | undefined;
+  public result!: Result | null;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,13 +29,13 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      this.name = params['name'];
+      this.name = params['name'] || 'Player';
     });
 
     this.getGreeting(this.name);
   }
 
-  public getGreeting(name = 'Player') {
+  public getGreeting(name: string) {
     this.greetingService.getGreeting(name).subscribe({
       next: (response) => {
         this.greeting = response;
@@ -39,17 +46,16 @@ export class GameComponent implements OnInit {
     });
   }
 
-  public handleUserChoice(userChoice: number) {
+  public handleUserChoice(userChoiceIndex: number) {
     const computerChoiceIndex = Math.floor(Math.random() * 3);
     this.computerChoice = this.choices[computerChoiceIndex];
-    const result = userChoice - computerChoiceIndex;
-
-    console.log('activated Route: ', this.route);
+    this.userChoice = this.choices[userChoiceIndex];
+    const result = userChoiceIndex - computerChoiceIndex;
 
     if (result == 0) {
-      this.result = 'Draw! Go one more time...';
+      this.result = { value: 0, text: 'DRAW!' };
     } else if ([1, -2].includes(result)) {
-      this.result = 'You WIN! Comgratulations!';
-    } else this.result = 'You lose. Give it another try!';
+      this.result = { value: 1, text: 'YOU WIN!' };
+    } else this.result = { value: 2, text: 'YOU LOSE!' };
   }
 }
