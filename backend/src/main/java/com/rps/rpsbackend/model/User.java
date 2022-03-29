@@ -1,16 +1,10 @@
-package com.rps.restservicecors;
+package com.rps.rpsbackend.model;
 
-public class Greeting {
-
+public class User {
     private final long id;
     private final String content;
 
-    public Greeting() {
-        this.id = -1;
-        this.content = "";
-    }
-
-    public Greeting(long id, String content) {
+    public User(long id, String content) {
         this.id = id;
         this.content = content;
     }
