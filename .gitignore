@@ -1,17 +1,18 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Frontend ignore
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+frontend/dist
+frontend/tmp
+frontend/out-tsc
+frontend/bazel-out
 
-# Node
-/node_modules
+## Node
+frontend/node_modules
 npm-debug.log
 yarn-error.log
 
-# IDEs and editors
+## IDEs and editors
 .idea/
 .project
 .classpath
@@ -20,7 +21,7 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
+## Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -28,15 +29,47 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
-/.angular/cache
+## Miscellaneous
+frontend/.angular/cache
 .sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
+frontend/connect.lock
+frontend/coverage
+frontend/libpeerconnection.log
 testem.log
-/typings
+frontend/typings
 
-# System files
+## System files
 .DS_Store
 Thumbs.db
+
+# Backend ignore
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+backend/nbproject/private/
+backend/nbbuild/
+backend/dist/
+backend/nbdist/
+backend/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/

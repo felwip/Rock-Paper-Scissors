@@ -1,0 +1,33 @@
+<div class="chart" style="display: block">
+  <div>
+    <div>
+      <h1 class="m-4 text-center text-xl font-light tracking-wider">
+        Your wins
+      </h1>
+    </div>
+    <canvas
+      #Canvas
+      baseChart
+      [data]="ChartData"
+      [type]="ChartType"
+      [options]="ChartOptions"
+    >
+    </canvas>
+  </div>
+
+  <div>
+    <div>
+      <h1 class="m-4 text-center text-xl font-light tracking-wider">
+        Computer wins
+      </h1>
+    </div>
+    <canvas
+      #Canvas
+      baseChart
+      [data]="ChartData"
+      [type]="ChartType"
+      [options]="ChartOptions"
+    >
+    </canvas>
+  </div>
+</div>

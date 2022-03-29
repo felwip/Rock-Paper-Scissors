@@ -1,0 +1,40 @@
+<!-- TODO: Get Font awesome icons working-->
+<!-- <head>
+  <script
+    src="https://kit.fontawesome.com/77f0c87e49.js"
+    crossorigin="anonymous"
+  ></script>
+</head> -->
+
+<nav class="bg-slate-800">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+      <div
+        class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+      >
+        <div class="hidden sm:block sm:ml-6">
+          <div class="flex space-x-4">
+            <a
+              routerLink="/"
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLinkActive="active"
+              class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >Classic RPS</a
+            >
+            <a
+              routerLink="/stats"
+              routerLinkActive="active"
+              class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >Statistics</a
+            >
+            <!-- TODO: get Font awesome icons working -->
+            <!-- <i class="fa-solid fa-user text-white text-xl"></i> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>

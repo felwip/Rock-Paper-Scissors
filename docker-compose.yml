@@ -1,0 +1,21 @@
+version: "3"
+services:
+  node:
+    image: node:17-alpine
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - "30081"
+    command: ["bash", "-c", "bash -c 'npm install && ng serve'"]
+
+  tomcat:
+    image: tomcat:9.0
+    ports:
+      - "30000:8080"
+    volumes:
+      - ./backend/target/rps-backend-0.0.1-SNAPSHOT
+    target: /usr/local/tomcat

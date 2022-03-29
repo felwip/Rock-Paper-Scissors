@@ -1,27 +1,15 @@
-# RpsFrontendRouting
+# Rock Paper Scissors Browser Game
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This is a coding challenge, building a "Rock Paper Scissors" browser game with a backend. Frontend is built with Angular.js, Backend is in Java and built with Spring Boot.
 
-## Development server
+## Build Frontend Application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+In your terminal navigate into the project repository `Rock-Paper-Scissors`.
+Cd into the `frontend` repo by running `cd frontend`. Subsequently run `ng serve`. In your browser navigate to [localhost:4200](http://localhost:4200/).
 
-## Code scaffolding
+## Build Backend Application
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In your terminal navigate into the project repository `Rock-Paper-Scissors`.
+Cd into the `backend` repo by running `cd backend`. Subsequently run `mvn compile`, which should create a target repository. Now run `mvn package` to create an executable `.jar` file. Finally run `java -jar target/rps-backend-0.0.1-SNAPSHOT.jar` to start the backend application.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+In your browser navigate to [localhost:38080](http://localhost:38080/) to check whether the backend is running. You should see the prompt "Backend is up and running. You can send requests to the available routes now."
