@@ -1,6 +1,8 @@
 <div class="h-screen text-xl font-semibold font-extralight text-slate-800">
   <div class="flex justify-center text-2xl mt-12">
-    <h1>{{ greeting ? greeting.content : "" }}</h1>
+    <h1>
+      {{ "Welcome to Rock Paper Scissors!" }}
+    </h1>
   </div>
 
   <div class="mt-20 flex justify-center font-medium">
@@ -28,6 +30,7 @@
         }"
       />
       <p>COMPUTER</p>
+      <p>{{ stats.userLosses }}</p>
     </div>
 
     <div class="flex items-center">
@@ -48,6 +51,7 @@
         <!-- TODO: insert Avatar and keep gradient as background -->
       </div>
       <p>{{ name.toUpperCase() }}</p>
+      <p>{{ stats.userWins }}</p>
     </div>
   </div>
 
