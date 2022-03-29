@@ -38,6 +38,8 @@ export class GameComponent implements OnInit {
   public getGreeting(name: string) {
     this.greetingService.getGreeting(name).subscribe({
       next: (response) => {
+        console.log('got Response from be: ', response);
+
         this.greeting = response;
       },
       error: (error) => {
