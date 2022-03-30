@@ -2,20 +2,31 @@ version: "3"
 services:
   node:
     image: node:17-alpine
+    restart: "no"
     user: "node"
     working_dir: /home/node/app
-    environment:
-      - NODE_ENV=production
     volumes:
-      - ./:/home/node/app
-    expose:
-      - "30081"
-    command: ["bash", "-c", "bash -c 'npm install && ng serve'"]
-
-  tomcat:
-    image: tomcat:9.0
+      - ./frontend:/home/node/app
     ports:
-      - "30000:8080"
+      - "34200:4200"
+    command:
+      [
+        "/bin/sh",
+        "-c",
+        "npm install && ./node_modules/.bin/ng serve --host 0.0.0.0",
+      ]
+
+  openJdk:
+    image: maven:3.8-openjdk-11
+    restart: "no"
+    ports:
+      - "38080:38080"
+    working_dir: /usr/src/rps
     volumes:
-      - ./backend/target/rps-backend-0.0.1-SNAPSHOT
-    target: /usr/local/tomcat
+      - ./backend:/usr/src/rps
+    command:
+      [
+        "/bin/sh",
+        "-c",
+        "mvn install -DskipTests && mvn exec:java -Dexec.mainClass='com.rps.rpsbackend.RpsBackendApplication'",
+      ]
