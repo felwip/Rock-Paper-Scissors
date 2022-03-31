@@ -9,6 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class RpsBackendApplication {
 
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(RpsBackendApplication.class, args);
 	}
