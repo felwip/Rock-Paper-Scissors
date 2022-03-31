@@ -23,6 +23,8 @@ In your browser navigate to [localhost:38080](http://localhost:38080/) to check 
 
 ## Logs and Metrics
 
-### Healthcheck
+### Healthcheck and Actuator Endpoints
 
 A basic healthcheck for the spring-boot backend is implemented through spring-boot's actuator. After starting the backend application, you can check the health status on [localhost:38080/actuator/health](http://localhost:38080/actuator/health)
+
+Additional actuator endpoints are currently `/info`, `/loggers` and `/metrics`. See the updated overview of all available endpoints on [localhost:38080/actuator](http://localhost:38080/actuator)
