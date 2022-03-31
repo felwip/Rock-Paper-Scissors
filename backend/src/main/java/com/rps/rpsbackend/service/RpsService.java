@@ -1,6 +1,8 @@
 package com.rps.rpsbackend.service;
 
 import com.rps.rpsbackend.model.RpsResult;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,8 @@ import java.util.ArrayList;
 
 @Service
 public class RpsService {
+    private static Logger logger = LogManager.getLogger();
+
     int result;
     int computerChoice;
     int gamesPlayed = 0;
@@ -35,7 +39,7 @@ public class RpsService {
     }
 
     public RpsResult getGameStats() {
-        return new RpsResult(
+       RpsResult rpsResult = new RpsResult(
                 this.result,
                 this.computerChoice,
                 this.gamesPlayed,
@@ -43,6 +47,10 @@ public class RpsService {
                 this.userLosses,
                 this.draws,
                 this.streak);
+
+        logger.debug("getGameStats: Returning RpsResult: {}", result);
+        return rpsResult;
+
     }
 
     /* ! private helper methods */
@@ -56,6 +64,8 @@ public class RpsService {
         ArrayList<Integer> winningScenario = new ArrayList<Integer>(2);
         winningScenario.add(1);
         winningScenario.add(-2);
+        logger.debug("computeResult: userChoice - computerChoice: {}", result);
+
 
         /* Draw scenarios */
         if(result == 0) {
@@ -74,7 +84,8 @@ public class RpsService {
             this.userLosses += 1;
             this.streak = 0;
         }
-        return new RpsResult(
+
+        RpsResult rpsResult = new RpsResult(
                 this.result,
                 this.computerChoice,
                 this.gamesPlayed,
@@ -83,5 +94,7 @@ public class RpsService {
                 this.draws,
                 this.streak
         );
+        logger.debug("computeResult: Returning RpsResult: {}", result);
+        return rpsResult;
     }
 }

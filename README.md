@@ -23,8 +23,16 @@ In your browser navigate to [localhost:38080](http://localhost:38080/) to check 
 
 ## Logs and Metrics
 
-### Healthcheck and Actuator Endpoints
+### Logging level
 
-A basic healthcheck for the spring-boot backend is implemented through spring-boot's actuator. After starting the backend application, you can check the health status on [localhost:38080/actuator/health](http://localhost:38080/actuator/health)
+The log level of the backend defaults to `INFO`. You can switch the level in the `application.properties` file. To test if the desired log level applies, you may uncomment the test logs on the `RpsController` and navigate to [localhost:38080](http://localhost:38080). Subsequently check your terminal for the log messages.
 
-Additional actuator endpoints are currently `/info`, `/loggers` and `/metrics`. See the updated overview of all available endpoints on [localhost:38080/actuator](http://localhost:38080/actuator)
+### Available Actuator Endpoints
+
+A basic healthcheck and some additional application-info for the spring-boot backend is available through spring-boot's actuator.
+
+After starting the backend application, you can check the health status on [localhost:38080/actuator/health](http://localhost:38080/actuator/health)
+
+Metrics can be reached on [localhost:38080/actuator/metrics](http://localhost:38080/actuator/metrics)
+
+Additional actuator endpoints currently are `/info` and `/loggers`. See the updated overview of all available endpoints on [localhost:38080/actuator](http://localhost:38080/actuator)
